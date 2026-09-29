@@ -2,8 +2,10 @@ import streamlit as st
 from datetime import datetime
 import random
 from PIL import Image
-from streamlit_geolocation import streamlit_geolocation
-
+try:
+    from streamlit_geolocation import streamlit_geolocation
+except ImportError:
+    streamlit_geolocation = None
 from services.weather import get_weather
 from services.plant_health import analyze_plant
 from engine.conflict_engine import resolve_conflict
