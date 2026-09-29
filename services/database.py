@@ -272,21 +272,4 @@ def clear_all_decisions():
     connection.commit()
 
     connection.close()
-    # =========================================================
-# GET USER COUNT
-# =========================================================
-
-def get_user_count():
-
-    connection = get_connection()
-    cursor = connection.cursor()
-
-    try:
-        cursor.execute("SELECT COUNT(*) FROM users")
-        count = cursor.fetchone()[0]
-    except sqlite3.OperationalError:
-        count = 0
-
-    connection.close()
-
-    return count
+  
